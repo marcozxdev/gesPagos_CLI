@@ -6,8 +6,3 @@ class Sqlite:
         self.conn = conn
         self.cursor = cursor
 
-
-
-    def query(self, query):
-        cursor.execute(query)
-        conn.commit()

@@ -5,30 +5,30 @@
 
 # modelado de los datos para la base de datos
 
-class Usuario:
-    def __init__(self, uuid: int, email: str, nombre: str, contraseña: str):
+class User:
+    def __init__(self, uuid: int, email: str, name: str, password: str):
         self.uuid = uuid
         self.email = email
-        self.nombre = nombre
-        self.contraseña = contraseña
+        self.name = name
+        self.password = password
 
 
 
 
-class Deuda:
-    def __init__(self, usuario_id: int, total: float, descripcion: str ):
-        self.usuario_id = usuario_id
+class Debt:
+    def __init__(self, user_id: int, total: float, description: str ):
+        self.user_id = user_id
         self.total = total
-        self.descripcion = descripcion
+        self.descripction = description
 
 
 
 
 
-class Abono:
-    def __init__(self, deuda_id: int, monto: float, fecha: str):
-        self.deuda_id = deuda_id
-        self.monto = monto 
-        self.fecha = fecha
+class Payments:
+    def __init__(self, debt_id: int, amount: float, date: str):
+        self.debt_id = debt_id
+        self.amount = amount 
+        self.date = date
 
 

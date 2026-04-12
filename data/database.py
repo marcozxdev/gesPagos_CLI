@@ -31,34 +31,35 @@ def estructure_db(db):
 
     # usuarios
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
+    CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY ,
         uuid INTEGER NOT NULL UNIQUE,
-        nombre TEXT NOT NULL,
-        contraseña TEXT NOT NULL
+        email TEXT NOT NULL UNIQUE,
+        name TEXT NOT NULL,
+        password TEXT NOT NULL
     )
     """)
 
 
     # deudas
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS deudas (
+    CREATE TABLE IF NOT EXISTS debts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        usuario_id INTEGER,
-        total REAL,
-        descripcion TEXT,
-        FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+        user_id INTEGER,
+        total INTEGER,
+        description TEXT,
+        FOREIGN KEY(user_id) REFERENCES users(id)
     )
     """)
 
     # abonos 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS abonos (
+    CREATE TABLE IF NOT EXISTS payments (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        deuda_id INTEGER,
-        monto REAL,
-        fecha TEXT,
-        FOREIGN KEY(deuda_id) REFERENCES deudas(id)
+        debt_id INTEGER,
+        amount INTEGER,
+        date TEXT,
+        FOREIGN KEY(debt_id) REFERENCES debts(id)
     )
     """)
 
