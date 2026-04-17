@@ -1,4 +1,0 @@
-if []:
-    print("false")
-
-    

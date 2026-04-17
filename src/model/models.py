@@ -16,17 +16,19 @@ class User:
 
 
 class Debt:
-    def __init__(self, user_id: int, total: float, description: str ):
+    def __init__(self, user_id: int, total: int, total_paid: int, description: str):
         self.user_id = user_id
         self.total = total
-        self.descripction = description
+        self.total_paid = total_paid = 0
+        self.description = description
+
 
 
 
 
 
 class Payments:
-    def __init__(self, debt_id: int, amount: float, date: str):
+    def __init__(self, debt_id: int, amount: int, date: str):
         self.debt_id = debt_id
         self.amount = amount 
         self.date = date
