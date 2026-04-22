@@ -2,3 +2,6 @@
 __pycache__
 gespagos.sqbpro
 gespagos.db-journal
+src
+dist
+build
