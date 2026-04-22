@@ -2,8 +2,16 @@ from pathlib import Path
 import sqlite3
 
 
-# Ruta de la base de datos
-DB_PATH = Path(__file__).parent.absolute() / "gespagos.db"
+
+
+
+def get_db_path():
+    app_dir = Path.home() / ".gespagos"
+    app_dir.mkdir(exist_ok=True)
+    return app_dir / "gespagos.db"
+
+
+DB_PATH = get_db_path()
 
 
 class Database:
@@ -83,9 +91,7 @@ def estructure_db(database: Database):
 # -------------------------
 # Inicialización automática
 # -------------------------
-
 def init_db():
-    # Crear archivo si no existe
     if not DB_PATH.exists():
         DB_PATH.touch()
 
