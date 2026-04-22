@@ -40,7 +40,7 @@ class UserService:
         # user[4] porque fetchone devuelve una fila (no lista de filas)
         is_user = valide_pasword(password, user[4])
 
-        return user if is_user else False
+        return user if is_user else "prueba otro"
 
 
 
@@ -89,15 +89,15 @@ class PaymentService:
         self.repo = repo
         self.db = db
 
-    def add_payment(self, debt_id: int, amount: int):
+    def add_payment(self,user_id: int, debt_id: int, amount: int):
         if not (debt_id and amount):
             return "ASEGURESE DE INGRESAR BIEN LOS DATOS"
 
         try:
             date = get_current_date()
-            self.repo.add_payment(debt_id, amount, date)
+            self.repo.add_payment(user_id, debt_id, amount, date)
             self.db.commit()
-            return f"ABONO: {amount} A LA DEUDA N°: {debt_id}"
+            return "Revisa los abonos"
 
         except:
             self.db.rollback()
