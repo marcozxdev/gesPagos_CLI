@@ -1,46 +1,96 @@
-# 💰 gesPagos CLI  
+# 💰 gesPagos CLI
+
 ### Control total de tus deudas, sin complicaciones
 
-**gesPagos** es una aplicación de gestión financiera en consola diseñada para personas que quieren **claridad, control y disciplina** sobre sus deudas y pagos.
+**gesPagos** es una aplicación de consola diseñada para ayudarte a tener **claridad, control y disciplina** sobre tus deudas y pagos.
 
-Sin distracciones. Sin interfaces pesadas.  
-Solo información clara y decisiones inteligentes.
-
----
-
-## ✨ ¿Por qué gesPagos?
-
-Porque la mayoría de personas no falla por falta de dinero…  
-falla por falta de control.
-
-**gesPagos te da:**
-- 📊 Visibilidad completa de tus deudas
-- 💸 Seguimiento preciso de cada pago
-- 🧠 Control mental sobre tus finanzas
-- ⚡ Rapidez total desde la terminal
+Rápido. Minimalista. Sin distracciones.
 
 ---
 
-## 🚀 Funcionalidades
+## 🚀 ¿Qué hace?
 
-### 📌 Gestión de deudas
-Crea y administra todas tus deudas en un solo lugar.
-
-### 💸 Registro de pagos
-Añade abonos fácilmente y mantén tus cuentas actualizadas.
-
-### 📊 Cálculo automático
-Olvídate de hacer cuentas:
-- Total pagado
-- Saldo restante
-- Historial de pagos
-
-### 📋 Consulta clara
-Visualiza toda tu información de forma organizada y legible.
+* 📊 Gestiona tus deudas
+* 💸 Registra pagos fácilmente
+* 🧠 Calcula automáticamente saldos y totales
+* 📋 Muestra tu información de forma clara
 
 ---
 
-## 🖥️ Experiencia de uso
+## 🐧 Uso en Linux
 
-Minimalista. Directa. Eficiente.
+### 🔹 Opción 1 — Ejecutar directamente
 
+```bash
+chmod +x gesPagos
+./gesPagos
+```
+
+---
+
+### 🔹 Opción 2 — Ejecutar desde cualquier carpeta (temporal)
+
+```bash
+./gesPagos
+```
+
+(Solo funciona dentro de la carpeta donde está el archivo)
+
+---
+
+### 🔹 Opción 3 — Usarlo como comando global (recomendado)
+
+```bash
+chmod +x gesPagos
+sudo mv gesPagos /usr/local/bin/
+```
+
+Luego podrás ejecutarlo desde cualquier lugar:
+
+```bash
+gesPagos
+```
+
+---
+
+### 🔹 Opción 4 — Sin mover el archivo (añadir al PATH)
+
+```bash
+chmod +x gesPagos
+export PATH=$PATH:/ruta/donde/esta/el/archivo
+```
+
+Luego:
+
+```bash
+gesPagos
+```
+
+---
+
+## ⚠️ Requisitos
+
+* Sistema Linux (64-bit)
+
+---
+
+## 📌 Notas
+
+* No requiere instalación
+* No requiere Python
+* Funciona completamente desde la terminal
+
+---
+
+## 🧠 Filosofía
+
+La mayoría de problemas financieros no son de ingresos,
+sino de control.
+
+**gesPagos está hecho para cambiar eso.**
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado para rendimiento, simplicidad y enfoque.
