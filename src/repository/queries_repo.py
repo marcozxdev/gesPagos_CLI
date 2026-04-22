@@ -81,12 +81,18 @@ class PaymentsRepo:
     def __init__(self, db: Database):
         self.database = db
 
-    def add_payment(self, debt_id: int, amount: int, date: str) -> None:
+    def add_payment(self,user_id: int, debt_id: int, amount: int, date: str) -> None:
         # insertar pago
         self.database.execute("""
-            INSERT INTO payments (debt_id, amount, date)
-            VALUES (:debt_id, :amount, :date)
+         INSERT INTO payments (debt_id, amount, date)
+        SELECT :debt_id, :amount, :date
+        WHERE EXISTS (
+        SELECT 1 FROM debts 
+        WHERE id = :debt_id AND user_id = :user_id
+                    );
+
         """, {
+            "user_id": user_id,
             "debt_id": debt_id,
             "amount": amount,
             "date": date
@@ -96,8 +102,9 @@ class PaymentsRepo:
         self.database.execute("""
             UPDATE debts
             SET total_paid = total_paid + :amount
-            WHERE id = :debt_id
+            WHERE id = :debt_id and user_id = :user_id
         """, {
+            "user_id": user_id,
             "amount": amount,
             "debt_id": debt_id
         })

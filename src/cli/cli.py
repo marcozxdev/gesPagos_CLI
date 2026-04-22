@@ -76,8 +76,8 @@ def main_menu():
     )
 
 
-def user_menu(name:str, debts, total_dbts):
-    data = f"{name.title()}, DEUDAS[{debts}], TOTAL[{format_currency(total_dbts)}]"
+def user_menu(name:str, debts, total_dbts, rest):
+    data = f"{name.title()}, DEUDAS[{debts}], TOTAL[{format_currency(total_dbts - rest)}]"
     draw_box(
         "GESPAGOS: MENÚ USUARIO",
         [   data,
@@ -167,8 +167,12 @@ def run_cli(user_service, debt_service, payment_service):
 
                 total_debts = debt_service.list_total_debts(user_id)
                 quantity = debt_service.count_debts(user_id)
+                rest_debts = debt_service.list_debts(user_id)
+                rest = 0
+                for i in rest_debts:
+                    rest += i[3]
 
-                user_menu(user_name, quantity, total_debts)
+                user_menu(user_name, quantity, total_debts, rest)
                 option = input(">> ").strip()
 
                 if option == "1":
@@ -194,7 +198,7 @@ def run_cli(user_service, debt_service, payment_service):
                     debt_id = safe_int("ID deuda: ")
                     amount = safe_number("Monto: ")
 
-                    result = payment_service.add_payment(debt_id, amount)
+                    result = payment_service.add_payment(user_id,debt_id, amount)
                     print("Abono:", result)
 
                 elif option == "4":
